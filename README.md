@@ -4,7 +4,7 @@ This is sample project to demonstrate how to use flyway for database migration i
 #### Dependencies
 Add the following dependencies in pom.xml after creating spring boot project from start.spring.io
 
-```
+```xml
  <dependency>
     <groupId>org.flywaydb</groupId>
     <artifactId>flyway-core</artifactId>
@@ -17,7 +17,7 @@ Add the following dependencies in pom.xml after creating spring boot project fro
 ```
 Add the following maven plugin to run flyway migration via mvn command line.
 
-```
+```xml
 <plugin>
   <groupId>org.flywaydb</groupId>
   <artifactId>flyway-maven-plugin</artifactId>
@@ -27,7 +27,7 @@ Add the following maven plugin to run flyway migration via mvn command line.
 #### Flyway Configuration
 Spring Boot works really well with its defaults, but in this project we are skipping the defaults. Add the following property to disable flyway migration at application startup
 
-```
+```yaml
 spring:
   flyway:
     enabled: false
@@ -35,7 +35,7 @@ spring:
 We'll run the flyway migration using maven plugin. Create flyway config file under project root directory with following configuration
 
 ***flywayConfig.conf***
-```
+```properties
 flyway.url=jdbc:postgresql://localhost:5432/postgres?currentSchema=flyway-test
 flyway.locations=filesystem:src/main/resources/db/migration
 ```
